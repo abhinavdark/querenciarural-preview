@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --font-serif: "Lora", Georgia, serif;
+    --font-sans: "Montserrat", system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: #1c241e;
+    background-color: #fcfbf8;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom utility colors for Querencia Rural */
+.bg-forest { background-color: #165929; }
+.bg-forest-dark { background-color: #0e3f1c; }
+.bg-forest-light { background-color: #207739; }
+.text-forest { color: #165929; }
+.text-forest-dark { color: #0e3f1c; }
+.border-forest { border-color: #165929; }
+
+.bg-terracotta { background-color: #7b3812; }
+.text-terracotta { color: #7b3812; }
+.border-terracotta { border-color: #7b3812; }
+
+.bg-parchment { background-color: #fff8eb; }
+.text-parchment { color: #fff8eb; }
+.border-parchment { border-color: #ebd7b5; }
+
+.bg-warm-bg { background-color: #fcfbf8; }
+.bg-warm-card { background-color: #ffffff; }
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #165929;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+.transition-luxury {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
