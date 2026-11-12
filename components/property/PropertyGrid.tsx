@@ -11,6 +11,7 @@ interface PropertyGridProps {
   showFilter?: boolean;
   limit?: number;
   initialFilters?: Partial<FilterState>;
+  priorityCount?: number;
 }
 
 export function PropertyGrid({
@@ -18,6 +19,7 @@ export function PropertyGrid({
   showFilter = true,
   limit,
   initialFilters,
+  priorityCount = 0,
 }: PropertyGridProps) {
   const [filters, setFilters] = useState<FilterState>({
     category: initialFilters?.category || "todos",
@@ -85,7 +87,7 @@ export function PropertyGrid({
             <PropertyCard
               key={prop.id}
               property={prop}
-              priority={index < 3}
+              priority={index < priorityCount}
             />
           ))}
         </div>

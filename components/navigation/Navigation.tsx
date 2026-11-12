@@ -61,7 +61,6 @@ export function Navigation() {
                   src="/images/querencia-logo.svg"
                   alt="Querencia Rural"
                   fill
-                  priority
                   className="object-contain object-left group-hover:opacity-90 transition-opacity"
                 />
               </div>

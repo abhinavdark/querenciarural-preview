@@ -8,14 +8,14 @@ const lora = Lora({
   variable: "--font-serif",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "700"],
 });
 
 const montserrat = Montserrat({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "700"],
 });
 
 export const viewport: Viewport = {
@@ -110,6 +110,26 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${lora.variable} ${montserrat.variable} antialiased scroll-smooth`}>
       <head>
+        <link rel="preconnect" href="https://querenciarural.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://querenciarural.com" />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero-pazo-mobile-480.webp"
+          media="(max-width: 640px)"
+          type="image/webp"
+          // @ts-expect-error fetchPriority supported in HTML5
+          fetchpriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero-pazo.webp"
+          media="(min-width: 641px)"
+          type="image/webp"
+          // @ts-expect-error fetchPriority supported in HTML5
+          fetchpriority="high"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

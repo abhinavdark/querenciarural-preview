@@ -1,6 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Compass, ShieldCheck, MapPin, Award } from "lucide-react";
+import { ArrowRight, Compass, ShieldCheck, Award } from "lucide-react";
 import { COMPANY } from "@/data/company";
 
 export function Hero() {
@@ -8,17 +7,29 @@ export function Hero() {
     <section className="relative bg-[#165929] text-white overflow-hidden">
       {/* Background Hero Image with refined gradient treatment */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/hero-pazo.jpg"
-          alt="Pazo señorial gallego en Querencia Rural"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center opacity-35 scale-105 transform hover:scale-100 transition-transform duration-1000 ease-out"
-        />
+        <picture className="absolute inset-0 block w-full h-full">
+          <source
+            media="(max-width: 640px)"
+            srcSet="/images/hero-pazo-mobile-480.webp"
+            type="image/webp"
+          />
+          <source
+            media="(max-width: 1024px)"
+            srcSet="/images/hero-pazo-800.webp"
+            type="image/webp"
+          />
+          <img
+            src="/images/hero-pazo.webp"
+            alt="Pazo señorial gallego en Querencia Rural"
+            fetchPriority="high"
+            decoding="async"
+            loading="eager"
+            className="w-full h-full object-cover object-center opacity-35 scale-105 transform hover:scale-100 transition-transform duration-1000 ease-out"
+          />
+        </picture>
         {/* Editorial gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0d3419]/95 via-[#0d3419]/80 to-[#0d3419]/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d3419] via-transparent to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d3419]/95 via-[#0d3419]/80 to-[#0d3419]/40 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0d3419] via-transparent to-black/20 pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 sm:pt-24 sm:pb-28 lg:pt-32 lg:pb-36">

@@ -38,6 +38,7 @@ export default async function PropiedadesPage({ searchParams }: PropiedadesPageP
         {/* Property Grid with Interactive Filters */}
         <PropertyGrid
           initialProperties={PROPERTIES}
+          priorityCount={2}
           initialFilters={{
             category: initialCategory,
             province: initialProvince,
